@@ -1,5 +1,5 @@
 ##Write the generic RandomDrawing class. This class must implement the
-##RandomDrawingInterface (provided).
+##RandomDrawingInterface (provided).        
 
 The class should allow the user to specify whether or not the 
 drawing should allow duplicate objects.
