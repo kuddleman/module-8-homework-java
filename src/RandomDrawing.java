@@ -4,15 +4,15 @@ import java.util.*;
 
 
 public class RandomDrawing<T> implements RandomDrawingInterface<T> {
-    private T entry;
+
     private boolean allowDuplicateEntries;
-    private int drawingSize = 0;
+    private int size = 0;
     private ArrayList<T> entryList;
 
 
 
     public RandomDrawing(boolean allowDuplicateEntries) {
-        this.entry = null;
+
         this.allowDuplicateEntries = allowDuplicateEntries;
         this.entryList = new ArrayList<T>();
 
@@ -26,7 +26,8 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
         this.allowDuplicateEntries = allowDuplicateEntries;
     }
 
-    public  <T extends Comparable<T>> boolean isDuplicate(T entry) {
+    // TO DO
+    public  <T> extends Comparable<T> boolean isDuplicate(T entry) {
 
         Set<T> arrayValuesSet = new HashSet<T>();
 
@@ -51,17 +52,20 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
         } else {
             if(!isDuplicate(entry)) {  // if isDuplicate method returns false
                 entryList.add(entry );
-
                 return true;
+            } else {
+                return false;
             }
         }
-        return false;
-
-
     }
 
     @Override
     public T selectWinner(boolean removeWinner) {
+        // Select winner randomly
+
+        //If(removeWinner) remove from list
+        // Otherwise do nothing
+
         return null;
     }
 
@@ -72,10 +76,10 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
 
     @Override
     public void displayEntries() {
-        for(T entry : array) {
+        for (T entry : entryList) {
             System.out.println(entry);
         }
-
-
     }
 }
+
+
