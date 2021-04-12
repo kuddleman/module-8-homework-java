@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.*;
 
 
@@ -27,6 +26,7 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
     }
 
     // TO DO
+    /*
     public  <T> extends Comparable<T> boolean isDuplicate(T entry) {
 
         Set<T> arrayValuesSet = new HashSet<T>();
@@ -41,7 +41,7 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
         }
 
     }
-
+    */
 
 
     @Override
@@ -61,9 +61,15 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
 
     @Override
     public T selectWinner(boolean removeWinner) {
-        // Select winner randomly
+        // Select index of winner randomly
+        Random rand = new Random();
+        int upperbound = entryList.size();
+        int indexRemove = rand.nextInt(upperbound);
 
-        //If(removeWinner) remove from list
+        if(removeWinner){
+            //remove from list
+            entryList.remove(indexRemove);
+        }
         // Otherwise do nothing
 
         return null;
