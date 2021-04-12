@@ -23,7 +23,7 @@ public class RandomDrawingDriver {
         testRandomDrawing(numberDrawingWithDuplicates, "Integer drawing with duplicates allowed");
 
         RandomDrawing<String> emptyStringDrawing = new RandomDrawing<String>(ALLOW_DUPLICATES);
-        testRandomDrawing(emptyStringDrawing, "empty RandomDrawing");
+       // testRandomDrawing(emptyStringDrawing, "empty RandomDrawing");
         // IMPORTANT NOTE: Depending on your solution, your program might end here.
         // If it does, you should then comment out this test above so you can test the next section.
 
@@ -33,7 +33,7 @@ public class RandomDrawingDriver {
 
         // UNCOMMENT WHEN YOU WRITE YOUR STATIC GENERIC METHOD
         // ALSO UNCOMMENT THE ASSOCIATED TEST METHOD AT THE END OF THIS FILE
-		/*
+
 		System.out.println("\n**************************TESTING GENERIC METHOD**************************");
 		stringDrawingWithDuplicates = new RandomDrawing<String>(ALLOW_DUPLICATES);
 		fillRandomStringBox(stringDrawingWithDuplicates);
@@ -78,7 +78,7 @@ public class RandomDrawingDriver {
 		// If it does, and you completed the extra credit, you should
 		// comment out this test above so you can test the next section.
 		System.out.println("\nRegular credit testing complete!");
-		*/
+
 
         // UNCOMMENT TO TEST YOUR EXTRA CREDIT
 		/*
@@ -134,15 +134,21 @@ public class RandomDrawingDriver {
      //YOUR GENERIC METHOD HERE
     public static <T> List<T> selectMultipleUniqueWinners(RandomDrawingInterface<T> objList, int numberOfWinners ){
         ArrayList<T> listOfWinners = new ArrayList<>();
+        if( numberOfWinners > objList.size()) {
+            System.out.println("There are " + numberOfWinners + " winners, but only "  + objList.size() + " entries on the list.");
+        } else{
+            for(int i = 0; i < numberOfWinners; i++) {
 
-        for(int i = 0; i < numberOfWinners; i++) {
+            T aWinner = objList.selectWinner(true);
+            if(listOfWinners.contains(aWinner)){
+                i--;
+            } else{
+                listOfWinners.add(aWinner);
+            }
 
-//            <T> aWinner = objList.selectWinner(false);
-//            listOfWinners.add(aWinner);
+            }
         }
-
-
-       return listOfWinners;
+        return listOfWinners;
     }
 
 
@@ -191,7 +197,7 @@ public class RandomDrawingDriver {
         }
     }
     // UN-COMMENT THIS PART OUT WHEN YOU ARE READY TO TEST YOUR GENERIC METHOD
-	/*
+
 	public static <T extends Comparable<? super T>> void testUniqueWinnersMethod(RandomDrawing<T> randomDrawing, int numWinners, String testDescription) {
 		System.out.println("\n*****Testing static unique winners method: " + testDescription);
 		int expectedSize = randomDrawing.size() - numWinners;
@@ -208,5 +214,5 @@ public class RandomDrawingDriver {
 			System.out.println("   *****Test Failed: not all winners are unique.");
 		}
 	}
-	*/
+
 }

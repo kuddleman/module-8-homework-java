@@ -4,10 +4,7 @@ import java.util.*;
 public class RandomDrawing<T> implements RandomDrawingInterface<T> {
 
     private boolean allowDuplicateEntries;
-    private int size = 0;
     private ArrayList<T> entryList;
-
-
 
     public RandomDrawing(boolean allowDuplicateEntries) {
 
@@ -25,16 +22,10 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
     }
 
     public  <T> boolean isDuplicate(T entry) {
-
-        Set<T> arrayValuesSet = new HashSet<T>();
-
-        for(int i = 0; i < entryList.size(); i++) {
-            T value = (T) entryList.get(i);
-            if(arrayValuesSet.add(value)) { //if we can add entry to the Set, then isDuplicate == false
-                return false;
-            }
+        if(entryList.contains(entry)) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -58,14 +49,14 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
         Random rand = new Random();
         int upperbound = entryList.size();
         int indexRemove = rand.nextInt(upperbound);
-
+        T entry = entryList.get(indexRemove);
         if(removeWinner){
             //remove from list
             entryList.remove(indexRemove);
         }
         // Otherwise do nothing
 
-        return null;
+        return entry;
     }
 
     @Override
