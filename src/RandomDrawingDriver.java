@@ -131,7 +131,20 @@ public class RandomDrawingDriver {
     }
 
 
-    // YOUR GENERIC METHOD HERE
+     //YOUR GENERIC METHOD HERE
+    public static <T> List<T> selectMultipleUniqueWinners(RandomDrawingInterface<T> objList, int numberOfWinners ){
+        ArrayList<T> listOfWinners = new ArrayList<>();
+
+        for(int i = 0; i < numberOfWinners; i++) {
+
+//            <T> aWinner = objList.selectWinner(false);
+//            listOfWinners.add(aWinner);
+        }
+
+
+       return listOfWinners;
+    }
+
 
 
     public static void fillRandomStringBox(RandomDrawingInterface<String> wordBox) {
