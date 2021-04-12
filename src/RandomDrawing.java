@@ -1,7 +1,6 @@
 
 import java.util.*;
 
-
 public class RandomDrawing<T> implements RandomDrawingInterface<T> {
 
     private boolean allowDuplicateEntries;
@@ -25,24 +24,18 @@ public class RandomDrawing<T> implements RandomDrawingInterface<T> {
         this.allowDuplicateEntries = allowDuplicateEntries;
     }
 
-    // TO DO
-    /*
-    public  <T> extends Comparable<T> boolean isDuplicate(T entry) {
+    public  <T> boolean isDuplicate(T entry) {
 
         Set<T> arrayValuesSet = new HashSet<T>();
 
-        for(int i = 0; i < array.length; i++) {
-            T value = array[i];
+        for(int i = 0; i < entryList.size(); i++) {
+            T value = (T) entryList.get(i);
             if(arrayValuesSet.add(value)) { //if we can add entry to the Set, then isDuplicate == false
                 return false;
-            } else {
-                return true;
             }
         }
-
+        return true;
     }
-    */
-
 
     @Override
     public boolean addEntry(T entry) {
